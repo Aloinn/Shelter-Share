@@ -11,13 +11,18 @@
     "test": "echo \"No test specified\" && exit 0"
   },
   "dependencies": {
+    "@fawmi/vue-google-maps": "^0.9.67",
     "@gcto/firebase-hooks": "^2.0.0",
+    "@gcto/swrv-hooks": "^0.0.4",
+    "@googlemaps/js-api-loader": "^1.14.2",
     "@quasar/extras": "^1.0.0",
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
+    "firebase": "^9.8.1",
     "quasar": "^2.6.0",
     "vue": "^3.0.0",
-    "vue-router": "^4.0.0"
+    "vue-router": "^4.0.0",
+    "vue3-google-map": "^0.11.0"
   },
   "devDependencies": {
     "@quasar/app-webpack": "^3.0.0",

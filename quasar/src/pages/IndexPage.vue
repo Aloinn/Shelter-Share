@@ -1,16 +1,18 @@
 <template>
-  <q-page class="row items-center justify-evenly">{{ col }}</q-page>
+  <q-page class="row items-center justify-evenly">
+    <google-maps-donator />
+  </q-page>
 </template>
 
 <script lang="ts">
+import GoogleMapsDonator from 'src/components/GoogleMapsDonator.vue';
 import { defineComponent } from 'vue';
-import { useFirestoreCollection } from '@gcto/firebase-hooks';
+import GoogleMaps from '../components/GoogleMaps.vue';
 
 export default defineComponent({
-  name: 'IndexPage',
+  components: { GoogleMapsDonator },
   setup() {
-    const col = useFirestoreCollection('requests');
-    return { col };
+    return {};
   },
 });
 </script>
