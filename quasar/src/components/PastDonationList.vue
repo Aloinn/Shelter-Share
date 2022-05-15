@@ -46,18 +46,18 @@
       </q-card>
       <q-card style="width: 180px">
         <div class="fn-sm text-grey q-pa-xs">Total Items Donated</div>
-        <div class="text-center text-bold fn-xxl q-pa-md text-primary">9</div>
+        <div class="text-center text-bold fn-xxl q-pa-md text-primary">5</div>
       </q-card>
       <q-card style="width: 150px">
         <div class="fn-sm text-grey q-pa-xs">Times Volunteered</div>
-        <div class="text-center text-bold fn-xxl q-pa-md text-primary">1</div>
+        <div class="text-center text-bold fn-xxl q-pa-md text-primary">0</div>
       </q-card>
     </div>
     <div class="row q-gutter-x-xl justify-center" v-if="formatList.length > 0">
       <q-card style="width: 220px">
         <div class="fn-sm text-grey q-pa-xs">Contribution Percentage</div>
         <div class="text-center text-bold fn-xxl q-pa-md text-primary">
-          {{ (formatList.length / requestList.length) * 100 }}%
+          {{ Math.floor((formatList.length / requestList.length) * 100) }}%
         </div>
       </q-card>
     </div>
