@@ -1,9 +1,8 @@
 <template>
-  <div class="q-pa-lg">
-    <div class="text-h6">All Available Shelters</div>
+  <div class="q-pa-lg q-gutter-y-lg">
     <q-card
       class="shelter-card row"
-      v-for="(shelter, index) in shelters.data.value"
+      v-for="(shelter, index) in shelterList.data.value"
       :key="index"
     >
       <q-card-section class="col-4">
@@ -36,17 +35,12 @@
 </template>
 
 <script lang="ts">
-import { useFirestoreCollection } from '@gcto/firebase-hooks/lib';
 import { defineComponent } from 'vue';
-import { Shelter } from './models';
 
 export default defineComponent({
+  props: ['shelterList'],
   setup() {
-    const shelters = useFirestoreCollection<Shelter>('shelters');
-
-    return {
-      shelters,
-    };
+    return {};
   },
 });
 </script>
