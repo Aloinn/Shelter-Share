@@ -11,3 +11,150 @@
   font-family: 'Inter', sans-serif;
   color: $text-dark;
 }
+.border-round {
+  border-radius: 10px;
+}
+
+// app global css in SCSS form
+.clickable {
+  cursor: pointer;
+  &:hover {
+    background-color: $primary;
+    transition: 0.2s;
+  }
+}
+
+@import 'node_modules/quasar/src/css/index';
+@import 'quasar.variables';
+
+h2 {
+  @extend .fn-lg;
+  @extend .fn-800;
+}
+
+h3 {
+  @extend .fn-md;
+  @extend .fn-800;
+}
+
+h4 {
+  @extend .fn-sm;
+  @extend .fn-800;
+}
+.text-brown {
+  color: $brown;
+}
+.border-round {
+  border-radius: 10px;
+}
+
+.op-100 {
+  opacity: 1;
+}
+
+.op-80 {
+  opacity: 0.8;
+}
+.op-60 {
+  opacity: 0.6;
+}
+.op-40 {
+  opacity: 0.4;
+}
+.op-0 {
+  opacity: 0;
+}
+.bg-blur {
+  background-color: rgba(214, 201, 237, 0.25);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(15px);
+  // filter: blur(8px);
+  // -webkit-filter: blur(8px);
+}
+.container-lg {
+  max-width: 1800px;
+  padding: 0px 20px;
+}
+
+.container {
+  max-width: 1200px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.fn-xxl {
+  font-size: 50pt;
+  line-height: 50pt;
+}
+
+.fn-xl {
+  font-size: 30pt;
+  line-height: 30pt;
+}
+
+.fn-lg {
+  font-size: 18pt;
+  line-height: 22pt;
+}
+
+.fn-md {
+  font-size: 14pt;
+  line-height: 20pt;
+}
+
+.fn-sm {
+  font-size: 12pt;
+  line-height: 18pt;
+}
+
+.fn-xs {
+  font-size: 10pt;
+  line-height: 14pt;
+}
+
+.fn-xs {
+  font-size: 8pt;
+  line-height: 12pt;
+}
+.fn-800 {
+  font-weight: 600;
+}
+.fn-700 {
+  font-weight: 700;
+}
+
+.fn-300 {
+  font-weight: 300;
+}
+
+.fn-400 {
+  font-weight: 400;
+}
+
+.fn-500 {
+  font-weight: 500;
+}
+
+.fn-600 {
+  font-weight: 500;
+}
+.fn-200 {
+  font-weight: 200;
+}
+
+.fn-link {
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.fn-section-title {
+  @extend .fn-lg, .fn-800, .q-mt-lg, .q-mb-md, .text-uppercase;
+}
+
+.page {
+  @extend .container, .q-mx-auto, .q-gutter-y-xl, .q-pb-xl;
+}
