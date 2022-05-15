@@ -1,5 +1,5 @@
 <template>
-  <q-page>
+  <q-page class="q-pa-lg">
     <div class="text-h6 row justify-center">
       <q-input
         class="search-input"
@@ -29,11 +29,11 @@
       </div>
     </div>
     <div class="row justify-center q-mt-xl">
-      <div class="col-8">
+      <div class="col">
         <shelter-list :shelterList="shelters" />
       </div>
-      <div class="col-4">
-        <div>Past Donations</div>
+      <div class="col">
+        <past-donation-list />
       </div>
     </div>
   </q-page>
@@ -42,6 +42,7 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 import ShelterList from 'src/components/ShelterList.vue';
+import PastDonationList from 'src/components/PastDonationList.vue';
 import { useFirestoreCollection } from '@gcto/firebase-hooks/lib';
 import { Shelter } from 'src/components/models';
 
@@ -60,7 +61,7 @@ export default defineComponent({
       updateSearchResults,
     };
   },
-  components: { ShelterList },
+  components: { ShelterList, PastDonationList },
 });
 </script>
 

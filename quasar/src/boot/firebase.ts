@@ -1,5 +1,4 @@
 import { boot } from 'quasar/wrappers';
-import axios, { AxiosInstance } from 'axios';
 import { firebaseInit } from '@gcto/firebase-hooks/lib';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';

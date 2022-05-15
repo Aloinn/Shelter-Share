@@ -91,6 +91,7 @@ export default {
         address: formData.address,
         items: formData.items,
         shelter: props.shelterId || '',
+        status: 'pending',
       });
       console.log('form reached');
     }

@@ -66,7 +66,6 @@
 
 <script>
 import { useDialogPluginComponent } from 'quasar';
-import { Shelter } from './models';
 import { useQuasar } from 'quasar';
 import DonationDialog from './forms/DonationDialog.vue';
 
