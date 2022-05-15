@@ -47,7 +47,7 @@
 import { computed, defineComponent, ref } from 'vue';
 import { GoogleMap, Marker, Circle } from 'vue3-google-map';
 import { googleMapStyle } from '../lib/google-map-style';
-import { useFirestoreCollection } from '@gcto/firebase-hooks';
+import { useFirebaseUser, useFirestoreCollection } from '@gcto/firebase-hooks';
 import { Shelter } from './models';
 import { useQuasar } from 'quasar';
 import DialogWrapperVue from './ShelterDialog.vue';
@@ -58,13 +58,16 @@ export default defineComponent({
   setup() {
     const $q = useQuasar();
     const db = getFirestore();
+    const user = useFirebaseUser();
     const openDialog = (shelter: Shelter) => {
       $q.dialog({
         component: DialogWrapperVue,
         componentProps: { shelter },
       }).onOk(() => {
         addDoc(collection(db, 'requests'), {
-          test: 'asf',
+          uid: user.data.value?.uid,
+          content: 'Some Items',
+          shelter: shelter.id,
         });
       });
     };

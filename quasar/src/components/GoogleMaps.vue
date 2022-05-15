@@ -12,6 +12,7 @@
 </template>
 
 <script lang="ts">
+import { useFirestoreCollection } from '@gcto/firebase-hooks/lib';
 import { defineComponent, ref } from 'vue';
 import { GoogleMap, Marker, Circle } from 'vue3-google-map';
 import { googleMapStyle } from './../lib/google-map-style';
@@ -32,6 +33,8 @@ export default defineComponent({
     const log = () => {
       console.log('T');
     };
+
+    // useFirestoreCollection
 
     const cc = {
       center: location.value,

@@ -42,7 +42,7 @@
             >
           </q-item-section>
         </q-item>
-        user:{{ user }}
+        user:{{ userObject }}
         <q-item class="q-mt-xl" clickable v-ripple @click="logout" v-if="user">
           <div class="q-mr-lg">
             <q-icon name="logout" size="2rem" color="red" />
@@ -75,8 +75,8 @@
 <script lang="ts">
 import { defineComponent, ref, computed } from 'vue';
 import { useRoute } from 'vue-router';
-import { useFirebaseUser } from '@gcto/firebase-hooks';
 import LoginDialog from 'src/components/auth/modals/LoginDialog.vue';
+import { useFirebaseUser } from 'src/boot/firebase';
 export default defineComponent({
   components: { LoginDialog },
   setup() {
@@ -120,6 +120,7 @@ export default defineComponent({
       leftDrawerOpen,
       user,
       showLogin,
+      userObject,
       // Functions
       logout,
       toggleLeftDrawer() {
