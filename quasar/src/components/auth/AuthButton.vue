@@ -26,7 +26,7 @@ export default defineComponent({
   },
   setup() {
     const showLogin = ref(false);
-    const showSignup = ref(true);
+    const showSignup = ref(false);
 
     // Using polar assertion just to prevent weird dialog interactions
     function showDialog(authChoice: string) {
