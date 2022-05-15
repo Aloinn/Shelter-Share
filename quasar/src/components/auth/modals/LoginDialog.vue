@@ -93,3 +93,9 @@ export default defineComponent({
   },
 });
 </script>
+
+<style lang="scss" scoped>
+.sign-card {
+  min-width: 70vw;
+}
+</style>

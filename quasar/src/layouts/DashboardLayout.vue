@@ -19,7 +19,7 @@
       <q-list class="q-gutter-y-md">
         <q-item-label header> Shelter Share </q-item-label>
         <!-- Signed in state -->
-
+        <div>{{ user?.email }}</div>
         <!-- List of navigation items -->
         <q-item
           v-for="nav in navigationList"
@@ -42,15 +42,30 @@
             >
           </q-item-section>
         </q-item>
-        <q-item clickable v-ripple @click="logout">
+        user:{{ user }}
+        <q-item class="q-mt-xl" clickable v-ripple @click="logout" v-if="user">
           <div class="q-mr-lg">
             <q-icon name="logout" size="2rem" color="red" />
           </div>
           <q-item-section> Sign out </q-item-section>
         </q-item>
+        <q-item
+          class="q-mt-xl"
+          clickable
+          v-ripple
+          @click="showLogin = true"
+          v-else
+        >
+          <div class="q-mr-lg">
+            <q-icon name="login" size="2rem" color="primary" />
+          </div>
+          <q-item-section>Login</q-item-section>
+        </q-item>
       </q-list>
     </q-drawer>
-
+    <q-dialog v-model="showLogin">
+      <login-dialog />
+    </q-dialog>
     <q-page-container>
       <router-view />
     </q-page-container>
@@ -61,7 +76,9 @@
 import { defineComponent, ref, computed } from 'vue';
 import { useRoute } from 'vue-router';
 import { useFirebaseUser } from '@gcto/firebase-hooks';
+import LoginDialog from 'src/components/auth/modals/LoginDialog.vue';
 export default defineComponent({
+  components: { LoginDialog },
   setup() {
     const navigationList = [
       {
@@ -86,7 +103,7 @@ export default defineComponent({
       },
     ];
     const leftDrawerOpen = ref(false);
-
+    const showLogin = ref(false);
     const $route = useRoute();
     const currentRoute = $route.path;
     const userObject = useFirebaseUser();
@@ -102,6 +119,7 @@ export default defineComponent({
       currentRoute,
       leftDrawerOpen,
       user,
+      showLogin,
       // Functions
       logout,
       toggleLeftDrawer() {
