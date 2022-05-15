@@ -1,14 +1,12 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
+    <q-header class="bg-white">
       <q-toolbar>
-        <q-btn
-          flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
+        <q-icon
+          name="menu"
+          color="black"
           @click="toggleLeftDrawer"
+          size="2rem"
         />
 
         <q-toolbar-title> Quasar App </q-toolbar-title>
@@ -18,14 +16,38 @@
     </q-header>
 
     <q-drawer v-model="leftDrawerOpen" show-if-above bordered>
-      <q-list>
-        <q-item-label header> Essential Links </q-item-label>
+      <q-list class="q-gutter-y-md">
+        <q-item-label header> Shelter Share </q-item-label>
+        <!-- Signed in state -->
 
-        <EssentialLink
-          v-for="link in essentialLinks"
-          :key="link.title"
-          v-bind="link"
-        />
+        <!-- List of navigation items -->
+        <q-item
+          v-for="nav in navigationList"
+          :key="nav.name"
+          :href="nav.route"
+          clickable
+          v-ripple
+        >
+          <div class="q-mr-lg">
+            <q-icon
+              :name="nav.icon"
+              size="2rem"
+              :color="nav.route == currentRoute ? 'primary' : 'grey'"
+            />
+          </div>
+          <q-item-section>
+            <q-item-label
+              :class="nav.route == currentRoute ? 'text-black' : 'text-grey'"
+              >{{ nav.name }}</q-item-label
+            >
+          </q-item-section>
+        </q-item>
+        <q-item clickable v-ripple @click="logout">
+          <div class="q-mr-lg">
+            <q-icon name="logout" size="2rem" color="red" />
+          </div>
+          <q-item-section> Sign out </q-item-section>
+        </q-item>
       </q-list>
     </q-drawer>
 
@@ -36,67 +58,52 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
-import EssentialLink from 'components/EssentialLink.vue';
-
-const linksList = [
-  {
-    title: 'Docs',
-    caption: 'quasar.dev',
-    icon: 'school',
-    link: 'https://quasar.dev',
-  },
-  {
-    title: 'Github',
-    caption: 'github.com/quasarframework',
-    icon: 'code',
-    link: 'https://github.com/quasarframework',
-  },
-  {
-    title: 'Discord Chat Channel',
-    caption: 'chat.quasar.dev',
-    icon: 'chat',
-    link: 'https://chat.quasar.dev',
-  },
-  {
-    title: 'Forum',
-    caption: 'forum.quasar.dev',
-    icon: 'record_voice_over',
-    link: 'https://forum.quasar.dev',
-  },
-  {
-    title: 'Twitter',
-    caption: '@quasarframework',
-    icon: 'rss_feed',
-    link: 'https://twitter.quasar.dev',
-  },
-  {
-    title: 'Facebook',
-    caption: '@QuasarFramework',
-    icon: 'public',
-    link: 'https://facebook.quasar.dev',
-  },
-  {
-    title: 'Quasar Awesome',
-    caption: 'Community Quasar projects',
-    icon: 'favorite',
-    link: 'https://awesome.quasar.dev',
-  },
-];
-
+import { defineComponent, ref, computed } from 'vue';
+import { useRoute } from 'vue-router';
+import { useFirebaseUser } from '@gcto/firebase-hooks';
 export default defineComponent({
-  name: 'MainLayout',
-
-  components: {
-    EssentialLink,
-  },
-
   setup() {
+    const navigationList = [
+      {
+        name: 'Overview',
+        route: '/dashboard/',
+        icon: 'home',
+      },
+      {
+        name: 'Donation History',
+        route: '/dashboard/history',
+        icon: 'book',
+      },
+      {
+        name: 'Donate',
+        route: '/dashboard/form',
+        icon: 'request_quote',
+      },
+      {
+        name: 'Settings',
+        route: '/dashboard/settings',
+        icon: 'settings',
+      },
+    ];
     const leftDrawerOpen = ref(false);
 
+    const $route = useRoute();
+    const currentRoute = $route.path;
+    const userObject = useFirebaseUser();
+    // Computed to refresh upon undefined validation
+    const user = computed(() => userObject.data.value);
+
+    function logout() {
+      return 0;
+    }
     return {
-      essentialLinks: linksList,
+      // Primitives
+      navigationList,
+      currentRoute,
       leftDrawerOpen,
+      user,
+      // Functions
+      logout,
       toggleLeftDrawer() {
         leftDrawerOpen.value = !leftDrawerOpen.value;
       },
@@ -104,3 +111,5 @@ export default defineComponent({
   },
 });
 </script>
+
+<style lang="scss" scoped></style>

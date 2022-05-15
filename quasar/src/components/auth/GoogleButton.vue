@@ -11,15 +11,18 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
+import { useRouter } from 'vue-router';
 export default defineComponent({
   setup() {
     const provider = new GoogleAuthProvider();
+    const $router = useRouter();
     async function useGoogleAuth() {
       const auth = getAuth();
 
       const res = await signInWithPopup(auth, provider);
-      console.log(res);
-      return 0;
+      if (res.user) {
+        $router.push('/dashboard');
+      }
     }
     return {
       useGoogleAuth,
