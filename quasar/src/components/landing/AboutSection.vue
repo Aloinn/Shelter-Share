@@ -6,12 +6,22 @@
     <div class="col right fn-md q-pa-xl">
       <h2 class="fn-800 op-80 q-mb-sm">About Shelter Share</h2>
       <p class="op-60 fn-600 q-mb-md q-my-md">
-        More than 200,000 people experience homelessness in any given year in
-        Canada. This growing problem has not been improving. We have formulated
-        a solution that allows shelters to be notified of residents that want to
-        donate food or clothes on the fly. Our app deteremmins the cloest
-        homeless shelter and notifies them whenever a user on our app pings they
-        have food/clothes/anything to donate.
+        More than 235,000 Canadians experience homelessness in any given year.
+        The spare jacket in your closet or the extra microwavable meal could
+        make a world of difference to someone who may need it more.
+        <br /><br />
+        Our mission is to make donating extra clothes or food an effortless
+        task. That T-shirt in your closet was trendy back in 2015, but fell out
+        of style. Instead of throwing it away, donate it by using Shelter
+        Share's platform to ping a nearby shelter.
+        <br /><br />
+        The shelter may send someone to pick up the donations or one of our
+        registered volunteers may act as a courier.
+        <br /><br />
+        <span class="text-primary fn-600"
+          >When the option to recycle is convenient and accessible, everyone
+          benefits.</span
+        >
       </p>
       <p v-for="(c, i) in content" :key="i" class="fn-60 fn-sm fn-600">
         <q-icon color="primary" name="check_circle" size="1.25rem" />

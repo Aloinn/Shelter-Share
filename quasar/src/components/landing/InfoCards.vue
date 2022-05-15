@@ -1,7 +1,12 @@
 <template>
-  <div class="row fn-md justify-center q-col-gutter-lg">
+  <div class="row fn-md justify-center q-col-gutter-lg items-stretch">
     <div class="col-3" v-for="(card, i) in content" :key="i">
-      <q-card flat bordered class="border-round col-3 column items-stretch">
+      <q-card
+        flat
+        bordered
+        class="border-round col-3 column justify-center"
+        style="height: 300px"
+      >
         <q-card-section>
           <div class="row col justify-center">
             <q-btn
@@ -54,6 +59,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .infocards {
+  height: 400px;
   display: flex;
   justify-content: space-evenly;
   .info-card {

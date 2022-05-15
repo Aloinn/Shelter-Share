@@ -8,34 +8,32 @@
           @click="toggleLeftDrawer"
           size="2rem"
         />
-
-        <q-toolbar-title> Quasar App </q-toolbar-title>
-
-        <div>Quasar v{{ $q.version }}</div>
       </q-toolbar>
     </q-header>
 
     <q-drawer v-model="leftDrawerOpen" show-if-above bordered>
-      <q-list class="q-gutter-y-md">
+      <q-list class="q-gutter-y-md column fit">
         <q-item-label header>
           <q-btn icon="handshake" to="/" flat />
         </q-item-label>
         <!-- Signed in state -->
-        <q-card class="q-mx-md" v-if="user">
-          <q-card-section class="row items-center q-gutter-x-md">
-            <q-img
-              class="col-2"
-              :src="
-                user?.photoURL ||
-                'https://icon-library.com/images/anonymous-person-icon/anonymous-person-icon-18.jpg'
-              "
-            />
-            <div class="text-bold col-8">
-              {{ user?.email || user?.displayName }}
-              <div class="text-caption text-grey">Donor</div>
-            </div>
-          </q-card-section>
-        </q-card>
+        <div>
+          <q-card class="q-mx-md border-round" v-if="user" flat bordered>
+            <q-card-section class="row items-center q-gutter-x-md">
+              <q-img
+                class="col-2"
+                :src="
+                  user?.photoURL ||
+                  'https://icon-library.com/images/anonymous-person-icon/anonymous-person-icon-18.jpg'
+                "
+              />
+              <div class="text-bold col-8">
+                {{ user?.email || user?.displayName }}
+                <div class="text-caption text-grey">Donor</div>
+              </div>
+            </q-card-section>
+          </q-card>
+        </div>
         <!-- List of navigation items -->
         <q-item
           v-for="nav in navigationList"
@@ -58,6 +56,7 @@
             >
           </q-item-section>
         </q-item>
+        <q-space />
         <q-item class="q-mt-xl" clickable v-ripple @click="logout" v-if="user">
           <div class="q-mr-lg">
             <q-icon name="logout" size="2rem" color="red" />
@@ -102,21 +101,21 @@ export default defineComponent({
         route: '/dashboard/',
         icon: 'home',
       },
-      {
-        name: 'Donation History',
-        route: '/dashboard/history',
-        icon: 'book',
-      },
+      // {
+      //   name: 'Donation History',
+      //   route: '/dashboard/history',
+      //   icon: 'book',
+      // },
       {
         name: 'Donate',
         route: '/dashboard/donate',
         icon: 'request_quote',
       },
-      {
-        name: 'Settings',
-        route: '/dashboard/settings',
-        icon: 'settings',
-      },
+      // {
+      //   name: 'Settings',
+      //   route: '/dashboard/settings',
+      //   icon: 'settings',
+      // },
     ];
     const leftDrawerOpen = ref(false);
     const showLogin = ref(false);

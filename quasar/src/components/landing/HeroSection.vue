@@ -3,8 +3,10 @@
     <div class="col left">
       <h1>Shelter <span>Share</span></h1>
       <p>
-        Our mission to is reduce waste from residential spaces and repurpose it
-        for homeless shelters around Canada.
+        Our mission to is make donating old clothes and extra supplies quick and
+        convenient.
+        <!-- reduce waste from residential spaces and repurpose it
+        for homeless shelters around Canada. -->
       </p>
       <div class="q-gutter-sm">
         <q-btn
@@ -12,6 +14,7 @@
           label="Get Started"
           color="primary"
           no-caps
+          unelevated
           to="/dashboard"
         />
         <q-btn
@@ -20,7 +23,7 @@
           label="Watch Video"
           no-caps
           flat
-          href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley"
+          href="https://www.youtube.com/watch?v=j73aQcYqjzQ"
         />
       </div>
     </div>

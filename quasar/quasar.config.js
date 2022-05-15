@@ -52,7 +52,7 @@ module.exports = configure(function (ctx) {
     // Full list of options: https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js#Property%3A-build
     build: {
       vueRouterMode: 'history', // available values: 'hash', 'history'
-
+      distDir: './../firebase/public',
       // transpile: false,
       // publicPath: '/',
 
@@ -137,9 +137,9 @@ module.exports = configure(function (ctx) {
       // chainWebpackCustomSW (/* chain */) {},
 
       manifest: {
-        name: `Quasar App`,
-        short_name: `Quasar App`,
-        description: ``,
+        name: 'Quasar App',
+        short_name: 'Quasar App',
+        description: '',
         display: 'standalone',
         orientation: 'portrait',
         background_color: '#ffffff',

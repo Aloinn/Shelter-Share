@@ -1,19 +1,24 @@
 <template>
   <q-dialog ref="dialogRef" @hide="onDialogHide">
     <q-card flat class="q-dialog-plugin card border-round">
-      <div class="container q-ma-md">
-        <h6 class="text-h6 q-mb-md title">Donate item(s) ...</h6>
-        <q-form class="q-pt-md q-pb-md">
-          <q-input
-            class="q-mb-lg"
-            label="Name"
-            v-model="formData.name"
-            dense
-            outlined
-            stack-label
-            lazy-rules
-            :rules="[(val) => (val && val.length > 0) || '']"
-          />
+      <div class="container q-ma-md q-pt-md">
+        <h6 class="fn-lg op-80 fn-600 q-mb-md title">Donate item(s) ...</h6>
+        <q-form class="q-pt-md q-pb-md" @submit="submitForm">
+          <q-card class="border-round q-my-md" v-if="user" flat bordered>
+            <q-card-section class="row items-center q-gutter-x-md">
+              <q-img
+                class="col-2"
+                :src="
+                  user?.photoURL ||
+                  'https://icon-library.com/images/anonymous-person-icon/anonymous-person-icon-18.jpg'
+                "
+              />
+              <div class="text-bold col-8">
+                {{ user?.email || user?.displayName }}
+                <div class="text-caption text-grey">Donor</div>
+              </div>
+            </q-card-section>
+          </q-card>
           <q-input
             class="q-mb-lg"
             label="Address"
@@ -33,13 +38,7 @@
             lazy-rules
             :rules="[(val) => (val && val.length > 0) || '']"
           />
-          <q-btn
-            color="primary"
-            type="submit"
-            label="Submit"
-            @click="submitForm"
-            no-caps
-          />
+          <q-btn color="primary" type="submit" label="Submit" no-caps />
         </q-form>
       </div>
     </q-card>
@@ -60,7 +59,7 @@
 
 <script>
 import { useDialogPluginComponent } from 'quasar';
-import { reactive } from 'vue';
+import { reactive, computed } from 'vue';
 import { useFirebaseUser } from '@gcto/firebase-hooks';
 import { addDoc, collection, getFirestore } from 'firebase/firestore';
 
@@ -82,18 +81,20 @@ export default {
     });
 
     const db = getFirestore();
-    const user = useFirebaseUser();
+    const userObject = useFirebaseUser();
+    // Computed to refresh upon undefined validation
+    const user = computed(() => userObject.data.value);
 
     function submitForm() {
       addDoc(collection(db, 'requests'), {
-        uid: user.data.value?.uid,
-        name: formData.name,
+        uid: user.value?.uid,
+        name: user.value?.displayName,
         address: formData.address,
         items: formData.items,
         shelter: props.shelterId || '',
         status: 'pending',
       });
-      console.log('form reached');
+      onDialogOK();
     }
 
     // REQUIRED; must be called inside of setup()
@@ -101,6 +102,7 @@ export default {
       useDialogPluginComponent();
 
     return {
+      user,
       dialogRef,
       onDialogHide,
       submitForm,

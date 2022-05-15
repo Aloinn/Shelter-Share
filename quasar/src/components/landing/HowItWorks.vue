@@ -1,8 +1,8 @@
 <template>
   <div class="how-it-works">
     <h2>How It Works</h2>
-    <div class="cards q-gutter-lg row items-stretch">
-      <div class="" v-for="(c, i) in content" :key="i">
+    <div class="cards q-col-gutter-lg row items-stretch">
+      <div class="col-4" v-for="(c, i) in content" :key="i">
         <q-card flat bordered class="card border-round">
           <q-card-section class="section q-gutter-md">
             <q-img :src="`${c.img}`" class="fit" />
@@ -23,7 +23,7 @@ export default defineComponent({
       {
         name: 'Shelters',
         value:
-          'Shelters are able to sign up and recieve notifications when users have incomming donations. Shelters can also supply a pick-up service if they have the resources avaiable.',
+          'Shelters are able to sign up and recieve notifications when users have incoming donations. Shelters can also supply a pick-up service if they have the resources avaiable.',
         img: 'shelter.jpg',
       },
       {
@@ -63,7 +63,6 @@ h3 {
     justify-content: space-evenly;
 
     .card {
-      max-width: 400px;
       height: 690px;
       padding: 3rem 3rem;
 
