@@ -11,6 +11,28 @@
   font-family: 'Inter', sans-serif;
   color: $text-dark;
 }
+
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: $secondary;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $primary;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: $primary-dark;
+}
+
 .border-round {
   border-radius: 10px;
 }

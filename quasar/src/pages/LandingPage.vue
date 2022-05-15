@@ -1,86 +1,39 @@
 <template>
   <q-page>
-    <div class="row hero">
-      <div class="col left">
-        <h1>Helping Hand</h1>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus,
-          pariatur.
-        </p>
-        <div class="q-gutter-sm">
-          <q-btn label="Get Started" color="primary" no-caps />
-          <q-btn class="video-button" icon="play_circle_outline" label="Watch Video" no-caps flat />
-        </div>
-      </div>
-      <div class="col right">
-        <q-img
-          class="floating"
-          src="~assets/landing/HelpingHand.jpg"
-          width="100%"
-        />
-      </div>
-    </div>
-    <div class="row infocards">
-      
-    </div>
+    <hero-section id="/"></hero-section>
+    <info-cards></info-cards>
+    <about-section></about-section>
+    <stats-section></stats-section>
+    <how-it-works></how-it-works>
+    <team-section></team-section>
+    <shelter-signup></shelter-signup>
   </q-page>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import HeroSection from 'src/components/landing/HeroSection.vue';
+import InfoCards from 'src/components/landing/InfoCards.vue';
+import AboutSection from 'src/components/landing/AboutSection.vue';
+import StatsSection from 'src/components/landing/StatsSection.vue';
+import HowItWorks from 'src/components/landing/HowItWorks.vue';
+import TeamSection from 'src/components/landing/TeamSection.vue';
+import ShelterSignup from 'src/components/landing/ShelterSignup.vue';
 
 export default defineComponent({
+  components: {
+    HeroSection,
+    InfoCards,
+    AboutSection,
+    StatsSection,
+    HowItWorks,
+    TeamSection,
+    ShelterSignup,
+  },
   setup() {
-    console.log('hi');
+    return {};
   },
 });
 </script>
 
-<style lang="scss" scoped>
-.hero {
-  padding: 6rem;
-  .left {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    h1 {
-      font-size: 4rem;
-      font-weight: 600;
-      color: $text-dark;
-    }
-    p {
-      font-size: 1.5rem;
-      font-weight: 400;
-      color: $text-light;
-    }
-    .video-button {
-      color: $text-light;
-    }
-  }
-  .right {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-}
-
-.floating {
-  animation-name: floating;
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
-}
-
-@keyframes floating {
-  from {
-    transform: translate(0, 0px);
-  }
-  50% {
-    transform: translate(0, -20px);
-  }
-  to {
-    transform: translate(0, 0px);
-  }
-}
-</style>
+<style lang="scss" scoped></style>
