@@ -19,7 +19,7 @@
       <q-list class="q-gutter-y-md">
         <q-item-label header> Shelter Share </q-item-label>
         <!-- Signed in state -->
-        <q-card class="q-pa-sm" v-if="user">
+        <q-card class="q-mx-md" v-if="user">
           <q-card-section class="row items-center q-gutter-x-md">
             <q-img
               class="col-2"

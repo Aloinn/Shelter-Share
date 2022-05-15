@@ -1,38 +1,42 @@
 <template>
-  <div class="container">
-    <h6 class="text-h6 q-mb-md">Donate item(s) ...</h6>
-    <div v-if="!!errMsg">{{ errMsg }}</div>
-    <div v-if="!!user">{{ user }}</div>
-    <q-input
-      class="q-mb-md"
-      label="Name"
-      v-model="formData.name"
-      outlined
-      stack-label
-    />
-    <q-input
-      class="q-mb-md"
-      label="Address"
-      v-model="formData.address"
-      outlined
-      stack-label
-    />
-    <q-input
-      class="q-mb-md"
-      label="Items"
-      v-model="formData.items"
-      outlined
-      stack-label
-      type="textarea"
-    />
-    <q-btn
-      color="primary"
-      type="submit"
-      label="Submit"
-      @click="submitForm"
-      no-caps
-    />
-  </div>
+  <q-dialog>
+    <q-card>
+      <div class="container">
+        <h6 class="text-h6 q-mb-md">Donate item(s) ...</h6>
+        <div v-if="!!errMsg">{{ errMsg }}</div>
+        <div v-if="!!user">{{ user }}</div>
+        <q-input
+          class="q-mb-md"
+          label="Name"
+          v-model="formData.name"
+          outlined
+          stack-label
+        />
+        <q-input
+          class="q-mb-md"
+          label="Address"
+          v-model="formData.address"
+          outlined
+          stack-label
+        />
+        <q-input
+          class="q-mb-md"
+          label="Items"
+          v-model="formData.items"
+          outlined
+          stack-label
+          type="textarea"
+        />
+        <q-btn
+          color="primary"
+          type="submit"
+          label="Submit"
+          @click="submitForm"
+          no-caps
+        />
+      </div>
+    </q-card>
+  </q-dialog>
 </template>
 
 <script lang="ts">
