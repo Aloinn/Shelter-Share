@@ -16,6 +16,7 @@
     "@gcto/swrv-hooks": "^0.0.4",
     "@googlemaps/js-api-loader": "^1.14.2",
     "@quasar/extras": "^1.0.0",
+    "@vue/composition-api": "^1.6.1",
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "firebase": "^9.8.1",

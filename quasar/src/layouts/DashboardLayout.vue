@@ -19,7 +19,21 @@
       <q-list class="q-gutter-y-md">
         <q-item-label header> Shelter Share </q-item-label>
         <!-- Signed in state -->
-        <div>{{ user?.email }}</div>
+        <q-card class="q-pa-sm" v-if="user">
+          <q-card-section class="row items-center q-gutter-x-md">
+            <q-img
+              class="col-2"
+              :src="
+                user?.photoURL ||
+                'https://icon-library.com/images/anonymous-person-icon/anonymous-person-icon-18.jpg'
+              "
+            />
+            <div class="text-bold col-8">
+              {{ user?.email || user?.displayName }}
+              <div class="text-caption text-grey">Donor</div>
+            </div>
+          </q-card-section>
+        </q-card>
         <!-- List of navigation items -->
         <q-item
           v-for="nav in navigationList"
@@ -42,7 +56,6 @@
             >
           </q-item-section>
         </q-item>
-        user:{{ userObject }}
         <q-item class="q-mt-xl" clickable v-ripple @click="logout" v-if="user">
           <div class="q-mr-lg">
             <q-icon name="logout" size="2rem" color="red" />
@@ -74,7 +87,8 @@
 
 <script lang="ts">
 import { defineComponent, ref, computed } from 'vue';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
+import { getAuth, signOut } from 'firebase/auth';
 import LoginDialog from 'src/components/auth/modals/LoginDialog.vue';
 import { useFirebaseUser } from 'src/boot/firebase';
 export default defineComponent({
@@ -105,13 +119,16 @@ export default defineComponent({
     const leftDrawerOpen = ref(false);
     const showLogin = ref(false);
     const $route = useRoute();
+    const $router = useRouter();
     const currentRoute = $route.path;
     const userObject = useFirebaseUser();
     // Computed to refresh upon undefined validation
     const user = computed(() => userObject.data.value);
 
-    function logout() {
-      return 0;
+    async function logout() {
+      const auth = getAuth();
+      await signOut(auth);
+      $router.push('/');
     }
     return {
       // Primitives
