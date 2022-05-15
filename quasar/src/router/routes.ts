@@ -22,6 +22,10 @@ const routes: RouteRecordRaw[] = [
         component: () => import('pages/HistoryPage.vue'),
       },
       {
+        path: 'donate',
+        component: () => import('pages/DonatePage.vue'),
+      },
+      {
         path: 'form',
         component: () => import('pages/FormPage.vue'),
       },
