@@ -16,8 +16,9 @@
                 <q-btn
                   unelevated
                   class="border-round fit fn-800 no-caps bg-white text-dark"
-                  label="SHELTER INFO"
+                  label="Shelter Info"
                   :href="shelter?.url"
+                  no-caps
                 />
               </div>
               <div class="col">
@@ -25,8 +26,9 @@
                   unelevated
                   color="primary"
                   class="border-round fit fn-800 no-caps"
-                  label="REQUEST DONATION PICKUP"
+                  label="Send Donations"
                   @click="onOKClick"
+                  no-caps
                 />
               </div>
             </div>
@@ -47,6 +49,8 @@
 <script>
 import { useDialogPluginComponent } from 'quasar';
 import { Shelter } from './models';
+import { useQuasar } from 'quasar';
+import DonationDialog from './forms/DonationDialog.vue';
 
 export default {
   props: {
@@ -57,8 +61,8 @@ export default {
     // component will emit through useDialogPluginComponent()
     ...useDialogPluginComponent.emits,
   ],
-
-  setup() {
+  setup(props) {
+    const $q = useQuasar();
     // REQUIRED; must be called inside of setup()
     const { dialogRef, onDialogHide, onDialogOK, onDialogCancel } =
       useDialogPluginComponent();
@@ -68,6 +72,10 @@ export default {
       onDialogHide,
 
       onOKClick() {
+        $q.dialog({
+          component: DonationDialog,
+          componentProps: { shelterId: props.shelter.id },
+        });
         // on OK, it is REQUIRED to
         // call onDialogOK (with optional payload)
         onDialogOK();

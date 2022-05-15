@@ -25,10 +25,7 @@ const routes: RouteRecordRaw[] = [
         path: 'donate',
         component: () => import('pages/DonatePage.vue'),
       },
-      {
-        path: 'form',
-        component: () => import('pages/FormPage.vue'),
-      },
+
       {
         path: 'settings',
         component: () => import('pages/SettingsPage.vue'),
