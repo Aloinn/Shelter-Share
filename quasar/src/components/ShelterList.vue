@@ -2,31 +2,31 @@
   <div class="q-pa-lg q-gutter-y-lg">
     <q-card
       class="shelter-card row"
-      v-for="(shelter, index) in shelterList.data.value"
+      v-for="(shelter, index) in shelterList"
       :key="index"
     >
       <q-card-section class="col-4">
-        <q-img class="shelter-image" :src="shelter[1].img" />
+        <q-img class="shelter-image" :src="shelter.img" />
       </q-card-section>
       <q-card-section class="col-8">
         <div class="fn-lg">
-          {{ shelter[1].name }}
+          {{ shelter.name }}
         </div>
         <q-separator />
         <div class="row items-center q-my-sm">
           <q-icon name="near_me" size="1.2rem" />
           <div class="text-caption fn-sm q-mx-sm">
-            {{ shelter[1].address }}
+            {{ shelter.address }}
           </div>
         </div>
         <div class="row items-center q-mt-xs">
           <q-icon name="volunteer_activism" size="1.2rem" />
           <div class="text-caption fn-sm q-ml-xs col-1">
-            {{ shelter[1].volunteerCount }}
+            {{ shelter.volunteerCount }}
           </div>
           <q-icon name="link" size="1.2rem" />
           <div class="text-caption fn-sm q-ml-xs col-1">
-            <a :href="shelter[1].url">Website</a>
+            <a :href="shelter.url">Website</a>
           </div>
         </div>
       </q-card-section>

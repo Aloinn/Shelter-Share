@@ -79,7 +79,7 @@
       </q-list>
     </q-drawer>
     <q-dialog v-model="showLogin">
-      <login-dialog />
+      <login-dialog @close="closeAll" />
     </q-dialog>
     <q-page-container>
       <router-view />
@@ -126,7 +126,9 @@ export default defineComponent({
     const userObject = useFirebaseUser();
     // Computed to refresh upon undefined validation
     const user = computed(() => userObject.data.value);
-
+    function closeAll() {
+      showLogin.value = false;
+    }
     async function logout() {
       const auth = getAuth();
       await signOut(auth);
@@ -141,6 +143,7 @@ export default defineComponent({
       showLogin,
       userObject,
       // Functions
+      closeAll,
       logout,
       toggleLeftDrawer() {
         leftDrawerOpen.value = !leftDrawerOpen.value;

@@ -68,7 +68,7 @@
 import { useDialogPluginComponent } from 'quasar';
 import { useQuasar } from 'quasar';
 import DonationDialog from './forms/DonationDialog.vue';
-
+import { Shelter } from './models';
 export default {
   props: {
     shelter: Shelter,

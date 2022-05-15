@@ -9,7 +9,7 @@
             width="200px"
             src="https://media-exp1.licdn.com/dms/image/C4E03AQHHyzladehUbQ/profile-displayphoto-shrink_400_400/0/1608144424986?e=1658361600&v=beta&t=CTHa7J-DV91XceuMHYykvXmtMSbfRGCIXPYagWfjqEs"
           ></q-img>
-          <h3>Samee Chowdhury</h3>
+          <h3 class="text-center">Samee Chowdhury</h3>
         </q-card-section>
       </q-card>
       <q-card class="card">
@@ -19,7 +19,7 @@
             width="200px"
             src="https://media-exp1.licdn.com/dms/image/C5603AQG0rF56ZKDpBQ/profile-displayphoto-shrink_400_400/0/1650319939694?e=1658361600&v=beta&t=uCKfbfljdec7Q3onN9MK3Ff6ZZUTR8tr2dOW1JhBlHc"
           ></q-img>
-          <h3>Alain Nguyen</h3>
+          <h3 class="text-center">Alain Nguyen</h3>
         </q-card-section>
       </q-card>
       <q-card class="card">
@@ -29,7 +29,7 @@
             width="200px"
             src="https://media-exp1.licdn.com/dms/image/C4D03AQGCaS4lhTI9wQ/profile-displayphoto-shrink_400_400/0/1581739641178?e=1658361600&v=beta&t=V_JBU0dhNg9p0COzCHLmFmvtTBUAaf-025lFy4ANwwI"
           ></q-img>
-          <h3>Richard Marquez</h3>
+          <h3 class="text-center">Richard Marquez</h3>
         </q-card-section>
       </q-card>
       <q-card class="card">
@@ -39,7 +39,7 @@
             width="200px"
             src="https://media-exp1.licdn.com/dms/image/C4E03AQGFExo_0FUEyA/profile-displayphoto-shrink_400_400/0/1631143569773?e=1658361600&v=beta&t=7xQYIQvXVXRBi7gNP50RmY79iTmHRwMr6oeop-pIzdM"
           ></q-img>
-          <h3>Dylan Le</h3>
+          <h3 class="text-center">Dylan Le</h3>
         </q-card-section>
       </q-card>
     </div>
@@ -47,6 +47,10 @@
 </template>
 
 <style lang="scss" scoped>
+h3 {
+  border-bottom: 2px solid $primary;
+  width: 100%;
+}
 .how-it-works {
   padding: 3rem;
   h2 {

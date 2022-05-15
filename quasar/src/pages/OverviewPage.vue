@@ -30,7 +30,7 @@
     </div>
     <div class="row justify-center q-mt-xl">
       <div class="col">
-        <shelter-list :shelterList="shelters" />
+        <shelter-list :shelterList="searchResults" />
       </div>
       <div class="col">
         <past-donation-list />
@@ -40,7 +40,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
+import { defineComponent, ref, computed } from 'vue';
 import ShelterList from 'src/components/ShelterList.vue';
 import PastDonationList from 'src/components/PastDonationList.vue';
 import { useFirestoreCollection } from '@gcto/firebase-hooks/lib';
@@ -51,6 +51,23 @@ export default defineComponent({
     const setSort = ref('Volunteer Count');
     const shelterSearch = ref('');
     const shelters = useFirestoreCollection<Shelter>('shelters');
+    const shelterLocations = computed(() => [
+      ...([...(shelters.data.value?.keys() || [])].map((key: string) => ({
+        id: key,
+        ...shelters.data.value?.get(key),
+      })) || []),
+    ]);
+    const searchResults = computed(() =>
+      shelterLocations.value.filter(
+        (item) =>
+          item?.name
+            ?.toLowerCase()
+            .includes(shelterSearch.value.toLowerCase()) ||
+          item?.address
+            ?.toLowerCase()
+            .includes(shelterSearch.value.toLowerCase())
+      )
+    );
     function updateSearchResults() {
       return 0;
     }
@@ -58,6 +75,8 @@ export default defineComponent({
       setSort,
       shelterSearch,
       shelters,
+      shelterLocations,
+      searchResults,
       updateSearchResults,
     };
   },
