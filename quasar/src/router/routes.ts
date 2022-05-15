@@ -9,6 +9,28 @@ const routes: RouteRecordRaw[] = [
       { path: '/landing', component: () => import('pages/LandingPage.vue') },
     ],
   },
+  {
+    path: '/dashboard',
+    component: () => import('layouts/DashboardLayout.vue'),
+    children: [
+      {
+        path: '',
+        component: () => import('pages/OverviewPage.vue'),
+      },
+      {
+        path: 'history',
+        component: () => import('pages/HistoryPage.vue'),
+      },
+      {
+        path: 'form',
+        component: () => import('pages/FormPage.vue'),
+      },
+      {
+        path: 'settings',
+        component: () => import('pages/SettingsPage.vue'),
+      },
+    ],
+  },
 
   // Always leave this as last one,
   // but you can also remove it
