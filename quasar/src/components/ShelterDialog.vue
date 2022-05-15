@@ -4,8 +4,12 @@
       <div class="elevated border-round">
         <q-img :src="shelter.img" height="500" class="fit border-round">
           <div class="q-pa-md fit column">
-            <div class="fn-lg fn-800 op-80">{{ shelter?.name }}</div>
-            <div class="fn-md fn-600 op-80">{{ shelter?.address }}</div>
+            <div class="fn-lg fn-800 op-80 font-weight-lg q-pb-sm">
+              {{ shelter?.name }}
+            </div>
+            <div class="fn-md fn-600 op-80 font-weight-md q-pb-sm">
+              {{ shelter?.address }}
+            </div>
             <div class="q-ma-sm fn-sm q-pa-md border-round bg-blur">
               {{ shelter?.info }}
             </div>
@@ -43,6 +47,20 @@
 .card {
   min-width: 600px;
   max-width: 800px;
+}
+
+.font-weight {
+  &-lg {
+    font-weight: 700;
+  }
+
+  &-md {
+    font-weight: 600;
+  }
+
+  &-sm {
+    font-weight: 400;
+  }
 }
 </style>
 

@@ -6,8 +6,8 @@
         <q-input
           outline
           v-model="search"
-          class="bg-white fn-md search border-round q-pa-md i"
-          placeholder="Search Shelter"
+          class="bg-white fn-md search border-round q-pb-md q-px-md q-pt-xs i"
+          placeholder="Search Shelter ..."
         >
           <q-icon name="search" size="30px" class="q-my-auto" />
         </q-input>
@@ -121,7 +121,6 @@ export default defineComponent({
     };
 
     const openDialog = (shelter: Shelter) => {
-      location.value = { lat: shelter.lat, lng: shelter.long };
       $q.dialog({
         component: DialogWrapperVue,
         componentProps: { shelter },

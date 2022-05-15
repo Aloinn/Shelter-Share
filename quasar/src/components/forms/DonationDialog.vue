@@ -54,6 +54,7 @@
 
 .title {
   font-weight: 600;
+  font-size: 22pt;
 }
 </style>
 
