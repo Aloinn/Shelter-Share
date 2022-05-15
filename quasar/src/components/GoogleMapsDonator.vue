@@ -22,7 +22,7 @@
       label="TEST"
       :options="{
         name: 'TEST',
-
+        icon: 'help-icon.png',
         position: {
           lat: location.lat,
           lng: location.long,
@@ -32,7 +32,6 @@
     <!-- ICON IS CHANGABLE -->
     <Marker
       :options="{
-        icon: 'favicon-16x16.png',
         position: location,
 
         size: '30',
@@ -71,8 +70,12 @@ export default defineComponent({
     };
 
     const shelters = useFirestoreCollection<Shelter>('shelters');
+    // COMPUTES ARRAY OF FIRESTORE DOCUMENTS WITH DOC ID
     const shelterLocations = computed(() => [
-      ...(shelters.data.value?.values() || []),
+      ...([...(shelters.data.value?.keys() || [])].map((key: string) => ({
+        id: key,
+        ...shelters.data.value?.get(key),
+      })) || []),
     ]);
     const location = ref({ lat: 43.65549, lng: -79.37428 });
     if (navigator.geolocation) {
@@ -99,6 +102,7 @@ export default defineComponent({
       clickable: true,
     };
     return {
+      shelters,
       googleMapStyle,
       shelterLocations,
       location,
