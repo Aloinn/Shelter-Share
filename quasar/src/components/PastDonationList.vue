@@ -81,7 +81,7 @@
       <q-card class="q-pa-lg fit border-round" bordered flat>
         <div class="fn-sm text-grey text-center">Contribution Percentage</div>
         <div class="text-center text-bold fn-xxl q-pa-md text-primary">
-          {{ (formatList.length / requestList.length) * 100 }}%
+          {{ Math.floor((formatList.length / requestList.length) * 100) }}%
         </div>
       </q-card>
     </div>
