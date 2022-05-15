@@ -1,6 +1,9 @@
 import { boot } from 'quasar/wrappers';
 import axios, { AxiosInstance } from 'axios';
 import { firebaseInit } from '@gcto/firebase-hooks/lib';
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+import { Observer, useSWRV } from '@gcto/swrv-hooks/lib';
 
 // Be careful when using SSR for cross-request state pollution
 // due to creating a Singleton instance here;
@@ -21,3 +24,12 @@ export default boot(({ app }) => {
     });
   });
 });
+
+export function getAuthStateChangeObservable() {
+  return (observer: Observer<firebase.User | null, firebase.auth.Error>) =>
+    firebase.auth().onIdTokenChanged(observer.next, observer.error);
+}
+
+export function useFirebaseUser() {
+  return useSWRV('', getAuthStateChangeObservable);
+}
