@@ -1,47 +1,56 @@
 <template>
-  <div>
-    {{ shelterLocations }}
-    {{ location }}
+  <div class="fit">
+    <div class="absolute top q-mx-auto row full-width">
+      <div class="row q-mx-auto q-mt-lg">
+        <q-input
+          outline
+          class="bg-white fn-md search border-round q-pa-md i"
+          placeholder="Search Shelter"
+        >
+          <q-icon name="search" size="30px" class="q-my-auto" />
+        </q-input>
+      </div>
+    </div>
+    <GoogleMap
+      api-key="AIzaSyAkCD51UGRDCEgBqC5ZeBCvSW5eq7gmnYw"
+      :styles="googleMapStyle"
+      :streetViewControl="false"
+      :mapTypeControl="false"
+      style="width: 100%; height: 94vh"
+      :center="location"
+      :zoom="14"
+    >
+      <Marker
+        :key="i"
+        v-for="(location, i) in shelterLocations"
+        @click="
+          () => {
+            openDialog(location);
+            log();
+          }
+        "
+        label="TEST"
+        :options="{
+          name: 'TEST',
+          icon: 'help-icon.png',
+          position: {
+            lat: location.lat,
+            lng: location.long,
+          },
+        }"
+      />
+    </GoogleMap>
   </div>
-  <GoogleMap
-    api-key="AIzaSyAkCD51UGRDCEgBqC5ZeBCvSW5eq7gmnYw"
-    :styles="googleMapStyle"
-    style="width: 100%; height: 50vh"
-    :center="location"
-    :zoom="14"
-  >
-    <Marker
-      :key="i"
-      v-for="(location, i) in shelterLocations"
-      @click="
-        () => {
-          openDialog(location);
-          log();
-        }
-      "
-      label="TEST"
-      :options="{
-        name: 'TEST',
-        icon: 'help-icon.png',
-        position: {
-          lat: location.lat,
-          lng: location.long,
-        },
-      }"
-    />
-    <!-- ICON IS CHANGABLE -->
-    <Marker
-      :options="{
-        position: location,
-
-        size: '30',
-        color: '#efefef',
-      }"
-    />
-
-    <Circle :options="cc" @click="log" />
-  </GoogleMap>
 </template>
+
+<style lang="scss" scoped>
+.top {
+  z-index: 200;
+}
+.search {
+  min-width: 500px;
+}
+</style>
 
 <script lang="ts">
 import { computed, defineComponent, ref } from 'vue';
@@ -54,11 +63,14 @@ import DialogWrapperVue from './ShelterDialog.vue';
 import { addDoc, collection, getFirestore } from 'firebase/firestore';
 
 export default defineComponent({
-  components: { GoogleMap, Marker, Circle },
+  components: { GoogleMap, Marker },
   setup() {
     const $q = useQuasar();
     const db = getFirestore();
     const user = useFirebaseUser();
+    const options = {
+      mapTypeControl: false,
+    };
     const openDialog = (shelter: Shelter) => {
       $q.dialog({
         component: DialogWrapperVue,
@@ -112,6 +124,7 @@ export default defineComponent({
       cc,
       openDialog,
       log,
+      options,
     };
   },
 });

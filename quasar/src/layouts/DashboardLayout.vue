@@ -93,7 +93,7 @@ export default defineComponent({
       },
       {
         name: 'Donate',
-        route: '/dashboard/form',
+        route: '/dashboard/donate',
         icon: 'request_quote',
       },
       {
