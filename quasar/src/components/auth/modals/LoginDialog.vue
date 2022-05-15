@@ -40,6 +40,7 @@
             </template>
           </q-input>
           <q-btn
+            unelevated
             label="Sign In"
             type="submit"
             @click="useAuthLogin"

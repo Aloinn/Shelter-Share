@@ -14,8 +14,8 @@
         </template>
       </q-input>
     </div>
-    <div class="row justify-between items-center q-px-xl q-pt-lg">
-      <div class="text-bold">Available Shelters</div>
+    <div class="row justify-between items-center q-pt-lg q-pb-sm">
+      <div class="fn-800 op-80 fn-lg">Available Shelters</div>
       <div class="row items-center q-gutter-x-sm">
         <div>Sort by</div>
         <q-select
@@ -28,7 +28,7 @@
         />
       </div>
     </div>
-    <div class="row justify-center q-mt-xl">
+    <div class="row justify-center q-col-gutter-md">
       <div class="col">
         <shelter-list :shelterList="searchResults" />
       </div>
@@ -89,6 +89,6 @@ export default defineComponent({
   width: 550px;
 }
 .sort-input {
-  max-width: 160px;
+  max-width: 200px;
 }
 </style>

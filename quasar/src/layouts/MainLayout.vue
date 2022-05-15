@@ -1,6 +1,6 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header class="header" elevated>
+    <q-header class="header q-pa-lg">
       <q-toolbar>
         <q-toolbar-title>
           <q-btn icon="handshake" to="#/" flat />
