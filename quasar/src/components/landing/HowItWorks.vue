@@ -4,31 +4,35 @@
     <div class="cards q-gutter-lg">
       <q-card class="card">
         <q-card-section class="section q-gutter-md">
-          <q-icon name="home_work" size="3rem" color="primary"></q-icon>
+          <q-img src="../../assets/Landing/shelter.jpg"></q-img>
           <h3>Shelters</h3>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque,
-            dicta.
+            Shelters are able to sign up and recieve notifications when users
+            have incomming donations. Shelters can also supply a pick-up service
+            if they have the resources avaiable.
           </p>
         </q-card-section>
       </q-card>
       <q-card class="card">
         <q-card-section class="section q-gutter-md">
-          <q-icon name="handshake" size="3rem" color="primary"></q-icon>
+          <q-img src="../../assets/Landing/donate.jpg"></q-img>
           <h3>Donaters</h3>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque,
-            dicta.
+            Donaters can easily locate shelters they would like to donate to.
+            Shelter Share provides easy to access information on shelters so
+            donaters can make an informed decision.
           </p>
         </q-card-section>
       </q-card>
       <q-card class="card">
         <q-card-section class="section q-gutter-md">
-          <q-icon name="volunteer_activism" size="3rem" color="primary"></q-icon>
+          <q-img src="../../assets/Landing/volunteer.jpg"></q-img>
           <h3>Volunteers</h3>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque,
-            dicta.
+            Even if you currently do not have supplies you would like to donate,
+            Shelter Share provides a why for you to still get involved. You can
+            volunteer as a pick-up driver to deliver supplies from Donaters to
+            the Shelters.
           </p>
         </q-card-section>
       </q-card>

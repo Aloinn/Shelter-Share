@@ -1,10 +1,10 @@
 <template>
   <div class="row hero">
     <div class="col left">
-      <h1>Shelter Share</h1>
+      <h1>Shelter <span>Share</span></h1>
       <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus,
-        pariatur.
+        Our mission to is reduce waste from residential spaces and repurpose it
+        for homeless shelters around Canada.
       </p>
       <div class="q-gutter-sm">
         <q-btn
@@ -46,6 +46,9 @@
       font-size: 4rem;
       font-weight: 600;
       color: $text-dark;
+      span {
+        color: $primary;
+      }
     }
     p {
       font-size: 1.5rem;

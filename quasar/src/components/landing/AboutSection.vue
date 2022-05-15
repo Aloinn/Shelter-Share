@@ -8,24 +8,26 @@
       />
     </div>
     <div class="col right">
-      <h2>Voluptatem dignissimos</h2>
+      <h2>About Shelter Share</h2>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor
-        sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-        ut labore et dolore magna aliqua.
+        More than 200,000 people experience homelessness in any given year in
+        Canada. This growing problem has not been improving. We have formulated
+        a solution that allows shelters to be notified of residents that want to
+        donate food or clothes on the fly. Our app deteremmins the cloest
+        homeless shelter and notifies them whenever a user on our app pings they
+        have food/clothes/anything to donate.
       </p>
       <p>
-        <q-icon color="primary" name="check_circle" size="1.25rem" /> Ullamco
-        laboris nisi ut aliquip ex ea commodo consequat
+        <q-icon color="primary" name="check_circle" size="1.25rem" /> Reduce
+        waste and recycle unwanted clothes for people in need.
       </p>
       <p>
-        <q-icon color="primary" name="check_circle" size="1.25rem" /> Ullamco
-        laboris nisi ut aliquip ex ea commodo consequat
+        <q-icon color="primary" name="check_circle" size="1.25rem" />
+        Centeralized place to locate nearby shelters to provide supplies.
       </p>
       <p>
-        <q-icon color="primary" name="check_circle" size="1.25rem" /> Ullamco
-        laboris nisi ut aliquip ex ea commodo consequat
+        <q-icon color="primary" name="check_circle" size="1.25rem" /> An easy
+        way to positively impact your community and bring people together.
       </p>
     </div>
   </div>

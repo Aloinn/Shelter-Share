@@ -3,30 +3,30 @@
     <q-card class="info-card">
       <q-card-section>
         <q-icon color="primary" name="location_on" size="2rem" />
-        <h2>Lorem, ipsum.</h2>
+        <h2>Easily Locate Shelters</h2>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum itaque,
-          eveniet, placeat mollitia laboriosam accusamus dolore aspernatur
-        </p>
-      </q-card-section>
-    </q-card>
-    <q-card class="info-card">
-      <q-card-section>
-        <q-icon color="primary" name="analytics" size="2rem" />
-        <h2>Lorem, ipsum.</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum itaque,
-          eveniet, placeat mollitia
+          Shelter Share provides an intuitive, interactive map for quick shelter
+          location and information.
         </p>
       </q-card-section>
     </q-card>
     <q-card class="info-card">
       <q-card-section>
         <q-icon color="primary" name="accessibility_new" size="2rem" />
-        <h2>Lorem, ipsum.</h2>
+        <h2>Create a Positive Impact</h2>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum itaque,
-          eveniet, placeat mollitia laboriosam accusamus
+          Shelter Share provides many different ways to comtribute to the
+          community. Whether you are a donater or volunteer.
+        </p>
+      </q-card-section>
+    </q-card>
+    <q-card class="info-card">
+      <q-card-section>
+        <q-icon color="primary" name="analytics" size="2rem" />
+        <h2>Track Your Contribution</h2>
+        <p>
+          Shelter Share provides a history of your donations to easily track
+          your contribution.
         </p>
       </q-card-section>
     </q-card>

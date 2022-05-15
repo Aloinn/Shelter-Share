@@ -1,7 +1,7 @@
 <template>
   <div class="row">
-    <q-btn label="Sign up" @click="showDialog('sign')" flat />
     <q-btn label="Log in" @click="showDialog('log')" flat />
+    <q-btn label="Sign up" @click="showDialog('sign')" class="signup-btn" />
     <q-dialog v-model="showSignup">
       <signup-dialog />
     </q-dialog>
@@ -53,3 +53,10 @@ export default defineComponent({
   },
 });
 </script>
+
+<style lang="scss" scoped>
+ .signup-btn {
+   background-color: $text-dark;
+   color: $text-lighter;
+ }
+</style>

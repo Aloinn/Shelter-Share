@@ -17,7 +17,9 @@
 
     <q-drawer v-model="leftDrawerOpen" show-if-above bordered>
       <q-list class="q-gutter-y-md">
-        <q-item-label header> Shelter Share </q-item-label>
+        <q-item-label header>
+          <q-btn icon="handshake" to="/" flat />
+        </q-item-label>
         <!-- Signed in state -->
         <q-card class="q-mx-md" v-if="user">
           <q-card-section class="row items-center q-gutter-x-md">
