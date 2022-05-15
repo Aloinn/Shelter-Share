@@ -1,8 +1,10 @@
 <template>
-  <div class="q-gutter-y-xl">
-    <q-card>
+  <div class="q-gutter-y-sm">
+    <q-card flat bordered class="border-round">
       <q-list v-if="formatList.length > 0">
-        <div class="fn-lg text-center">Donation History</div>
+        <div class="fn-lg text-center q-my-md fn-800 op-80">
+          Donation History
+        </div>
         <q-separator class="q-my-sm" inset />
         <q-item v-for="(req, index) in formatList" :key="index">
           <q-card flat>
@@ -10,10 +12,11 @@
               <q-icon
                 name="check_circle"
                 :color="req.data.status === 'pending' ? 'grey' : 'primary'"
-                size="45px"
+                size="20px"
               />
               <div class="fn-md q-ml-md" v-if="req.shelterData">
                 {{ req.shelterData.name }}
+                <div class="op-60 fn-sm">Pending Pickup Confirmation</div>
               </div>
             </div>
           </q-card>
@@ -37,25 +40,46 @@
         </div>
       </div>
     </q-card>
-    <div class="row q-gutter-x-xl justify-center" v-if="formatList.length > 0">
-      <q-card style="width: 150px">
-        <div class="fn-sm text-grey q-pa-xs">Total Donations</div>
-        <div class="text-center text-bold fn-xxl q-pa-md text-primary">
-          {{ formatList.length }}
-        </div>
-      </q-card>
-      <q-card style="width: 180px">
-        <div class="fn-sm text-grey q-pa-xs">Total Items Donated</div>
-        <div class="text-center text-bold fn-xxl q-pa-md text-primary">9</div>
-      </q-card>
-      <q-card style="width: 150px">
-        <div class="fn-sm text-grey q-pa-xs">Times Volunteered</div>
-        <div class="text-center text-bold fn-xxl q-pa-md text-primary">1</div>
-      </q-card>
+    <div
+      class="row q-col-gutter-x-sm justify-center"
+      v-if="formatList.length > 0"
+    >
+      <div class="col-4">
+        <q-card
+          class="fit column items-center justify-center q-py-lg border-round"
+          flat
+          bordered
+        >
+          <div class="fn-sm text-grey text-center">Total Donations</div>
+          <div class="text-center text-bold fn-xxl text-primary">
+            {{ formatList.length }}
+          </div>
+        </q-card>
+      </div>
+      <div class="col-4">
+        <q-card
+          class="fit column items-center justify-center q-py-lg border-round"
+          flat
+          bordered
+        >
+          <div class="fn-sm text-grey text-center">Total Items Donated</div>
+          <div class="text-center text-bold fn-xxl text-primary">9</div>
+        </q-card>
+      </div>
+      <div class="col-4">
+        <q-card
+          class="fit column items-center justify-center q-py-lg border-round"
+          flat
+          bordered
+        >
+          <div class="fn-sm text-grey text-center">Times Volunteered</div>
+          <div class="text-center text-bold fn-xxl text-primary">1</div>
+        </q-card>
+      </div>
     </div>
-    <div class="row q-gutter-x-xl justify-center" v-if="formatList.length > 0">
-      <q-card style="width: 220px">
-        <div class="fn-sm text-grey q-pa-xs">Contribution Percentage</div>
+    <div class="justify-center" v-if="formatList.length > 0">
+      <q-card class="q-pa-lg fit border-round" bordered flat>
+        <div class="fn-sm text-grey text-center">Contribution Percentage</div>
         <div class="text-center text-bold fn-xxl q-pa-md text-primary">
           {{ (formatList.length / requestList.length) * 100 }}%
         </div>

@@ -1,44 +1,48 @@
 <template>
   <div class="how-it-works">
     <h2>How It Works</h2>
-    <div class="cards q-gutter-lg">
-      <q-card class="card">
-        <q-card-section class="section q-gutter-md">
-          <q-img src="../../assets/Landing/shelter.jpg"></q-img>
-          <h3 class="text-center">Shelters</h3>
-          <p class="fn-md">
-            Shelters are able to sign up and recieve notifications when users
-            have incomming donations. Shelters can also supply a pick-up service
-            if they have the resources avaiable.
-          </p>
-        </q-card-section>
-      </q-card>
-      <q-card class="card">
-        <q-card-section class="section q-gutter-md">
-          <q-img src="../../assets/Landing/donate.jpg"></q-img>
-          <h3 class="text-center">Donaters</h3>
-          <p class="fn-md">
-            Donaters can easily locate shelters they would like to donate to.
-            Shelter Share provides easy to access information on shelters so
-            donaters can make an informed decision.
-          </p>
-        </q-card-section>
-      </q-card>
-      <q-card class="card">
-        <q-card-section class="section q-gutter-md">
-          <q-img src="../../assets/Landing/volunteer.jpg"></q-img>
-          <h3 class="text-center">Volunteers</h3>
-          <p class="fn-md">
-            Even if you currently do not have supplies you would like to donate,
-            Shelter Share provides a why for you to still get involved. You can
-            volunteer as a pick-up driver to deliver supplies from Donaters to
-            the Shelters.
-          </p>
-        </q-card-section>
-      </q-card>
+    <div class="cards q-gutter-lg row items-stretch">
+      <div class="" v-for="(c, i) in content" :key="i">
+        <q-card flat bordered class="card border-round">
+          <q-card-section class="section q-gutter-md">
+            <q-img :src="`${c.img}`" class="fit" />
+            <h3 class="text-center fn-lg op-80">{{ c.name }}</h3>
+            <p class="fn-md op-60 fn-400">{{ c.value }}</p>
+          </q-card-section>
+        </q-card>
+      </div>
     </div>
   </div>
 </template>
+
+<script lang="ts">
+import { defineComponent } from 'vue';
+export default defineComponent({
+  setup() {
+    const content = [
+      {
+        name: 'Shelters',
+        value:
+          'Shelters are able to sign up and recieve notifications when users have incomming donations. Shelters can also supply a pick-up service if they have the resources avaiable.',
+        img: 'shelter.jpg',
+      },
+      {
+        name: 'Donators',
+        value:
+          'Donaters can easily locate shelters they would like to donate to. Shelter Share provides easy to access information on shelters so donaters can make an informed decision.',
+        img: 'donate.jpg',
+      },
+      {
+        name: 'Volunteer',
+        value:
+          'Even if you currently do not have supplies but would still like to help out, Shelter Share provides a why for you to still get involved. You can volunteer as a pick-up driver to deliver supplies from Donaters to the Shelters.',
+        img: 'volunteer.jpg',
+      },
+    ];
+    return { content };
+  },
+});
+</script>
 
 <style lang="scss" scoped>
 h3 {
@@ -48,6 +52,7 @@ h3 {
 .how-it-works {
   background-color: $secondary;
   padding: 3rem;
+
   h2 {
     text-align: center;
     margin-bottom: 2rem;
@@ -56,8 +61,10 @@ h3 {
   .cards {
     display: flex;
     justify-content: space-evenly;
+
     .card {
       max-width: 400px;
+      height: 690px;
       padding: 3rem 3rem;
 
       .section {

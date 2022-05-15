@@ -125,11 +125,11 @@ export default defineComponent({
         component: DialogWrapperVue,
         componentProps: { shelter },
       }).onOk(() => {
-        addDoc(collection(db, 'requests'), {
-          uid: user.data.value?.uid,
-          content: 'Some Items',
-          shelter: shelter.id,
-        });
+        // addDoc(collection(db, 'requests'), {
+        //   uid: user.data.value?.uid,
+        //   content: 'Some Items',
+        //   shelter: shelter.id,
+        // });
       });
     };
 

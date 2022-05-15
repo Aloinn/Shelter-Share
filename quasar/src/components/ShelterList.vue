@@ -1,35 +1,36 @@
 <template>
-  <div class="q-pa-lg q-gutter-y-lg">
+  <div class="q-gutter-y-lg">
     <q-card
-      class="shelter-card row"
+      flat
+      bordered
+      class="shelter-card row border-round"
       v-for="(shelter, index) in shelterList"
       :key="index"
     >
-      <q-card-section class="col-4">
-        <q-img class="shelter-image" :src="shelter.img" />
-      </q-card-section>
-      <q-card-section class="col-8">
-        <div class="fn-lg">
-          {{ shelter.name }}
-        </div>
-        <q-separator />
-        <div class="row items-center q-my-sm">
-          <q-icon name="near_me" size="1.2rem" />
-          <div class="text-caption fn-sm q-mx-sm">
-            {{ shelter.address }}
+      <q-img :src="shelter.img" class="shelter-image">
+        <q-card-section class="fit">
+          <div class="fn-lg op-80 fn-800">
+            {{ shelter.name }}
           </div>
-        </div>
-        <div class="row items-center q-mt-xs">
-          <q-icon name="volunteer_activism" size="1.2rem" />
-          <div class="text-caption fn-sm q-ml-xs col-1">
-            {{ shelter.volunteerCount }}
+          <q-separator />
+          <div class="row items-center q-my-xs">
+            <q-icon name="near_me" size="1.2rem" />
+            <div class="text-caption fn-sm q-mx-sm fn-600 fn-60">
+              {{ shelter.address }}
+            </div>
           </div>
-          <q-icon name="link" size="1.2rem" />
-          <div class="text-caption fn-sm q-ml-xs col-1">
-            <a :href="shelter.url">Website</a>
+          <div class="row items-center q-mt-xs">
+            <q-icon name="volunteer_activism" size="1.2rem" />
+            <div class="text-caption fn-sm q-ml-xs col-1">
+              {{ shelter.volunteerCount }}
+            </div>
+            <q-icon name="link" size="1.2rem" />
+            <div class="text-caption fn-sm q-ml-xs col-1">
+              <a :href="shelter.url" class="fn-link text-primary">Website</a>
+            </div>
           </div>
-        </div>
-      </q-card-section>
+        </q-card-section>
+      </q-img>
     </q-card>
   </div>
 </template>
@@ -48,10 +49,11 @@ export default defineComponent({
 <style lang="scss" scoped>
 .shelter-card {
   max-width: 600px;
+  max-height: 350px;
 }
 .shelter-image {
   border-radius: 18px;
-  max-width: 160px;
+
   height: 160px;
 }
 a {
