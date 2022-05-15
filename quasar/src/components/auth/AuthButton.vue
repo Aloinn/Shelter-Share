@@ -6,10 +6,10 @@
       <signup-dialog />
     </q-dialog>
     <q-dialog v-model="showSignup">
-      <signup-dialog />
+      <signup-dialog @close="closeAll" />
     </q-dialog>
     <q-dialog v-model="showLogin">
-      <login-dialog />
+      <login-dialog @close="closeAll" />
     </q-dialog>
   </div>
 </template>
@@ -38,13 +38,17 @@ export default defineComponent({
         showLogin.value = true;
       }
     }
-
+    function closeAll() {
+      showSignup.value = false;
+      showLogin.value = false;
+    }
     return {
       // Primitives
       showLogin,
       showSignup,
       // Functions
       showDialog,
+      closeAll,
     };
   },
 });

@@ -19,14 +19,16 @@ import routes from './routes';
 export default route(function (/* { store, ssrContext } */) {
   const createHistory = process.env.SERVER
     ? createMemoryHistory
-    : (process.env.VUE_ROUTER_MODE === 'history' ? createWebHistory : createWebHashHistory);
+    : process.env.VUE_ROUTER_MODE === 'history'
+    ? createWebHistory
+    : createWebHashHistory;
 
   const Router = createRouter({
-    scrollBehavior(to, from ,savedPosition){
-      if (to.hash){
+    scrollBehavior(to) {
+      if (to.hash) {
         return {
-          el: to.hash
-        }
+          el: to.hash,
+        };
       }
     },
     routes,

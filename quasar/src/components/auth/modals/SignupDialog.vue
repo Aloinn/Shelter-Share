@@ -91,7 +91,7 @@
           <div class="col-grow text-grey">or</div>
           <q-separator inset class="col" />
         </div>
-        <google-button />
+        <google-button @closeDialog="closeParent" />
       </q-card-section>
     </div>
     <q-separator vertical />
@@ -110,18 +110,12 @@ import GoogleButton from '../GoogleButton.vue';
 import { useRouter } from 'vue-router';
 
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
-import {
-  addDoc,
-  setDoc,
-  collection,
-  getFirestore,
-  doc,
-} from 'firebase/firestore';
+import { setDoc, getFirestore, doc } from 'firebase/firestore';
 export default defineComponent({
   components: {
     GoogleButton,
   },
-  setup() {
+  setup(props, { emit }) {
     // Credential Vars
     const email = ref('');
     const password = ref('');
@@ -171,7 +165,9 @@ export default defineComponent({
         error.value = 'Password is required';
       }
     }
-
+    function closeParent() {
+      emit('close');
+    }
     async function chooseUser(type: string) {
       isShelter.value = type == 'shelter' ? true : false;
     }
@@ -186,6 +182,7 @@ export default defineComponent({
       // Functions
       useEmailAuth,
       chooseUser,
+      closeParent,
     };
   },
 });

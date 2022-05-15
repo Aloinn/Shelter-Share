@@ -13,7 +13,7 @@ import { defineComponent } from 'vue';
 import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
 import { useRouter } from 'vue-router';
 export default defineComponent({
-  setup() {
+  setup(props, { emit }) {
     const provider = new GoogleAuthProvider();
     const $router = useRouter();
     async function useGoogleAuth() {
@@ -21,6 +21,7 @@ export default defineComponent({
 
       const res = await signInWithPopup(auth, provider);
       if (res.user) {
+        emit('closeDialog');
         $router.push('/dashboard');
       }
     }

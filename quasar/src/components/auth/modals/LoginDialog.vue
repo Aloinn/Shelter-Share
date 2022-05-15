@@ -10,7 +10,7 @@
       <div class="text-center text-h6">Sign In</div>
       <!-- Google alternative -->
       <q-card-section class="row justify-center">
-        <google-button />
+        <google-button @closeDialog="closeParent" />
         <div class="row fit no-wrap q-gutter-x-sm justify-start items-center">
           <q-separator class="col q-ml-lg" />
           <div class="col-grow text-grey">or</div>
@@ -60,7 +60,7 @@ export default defineComponent({
   components: {
     GoogleButton,
   },
-  setup() {
+  setup(props, { emit }) {
     // Credential vars
     const email = ref('');
     const password = ref('');
@@ -82,6 +82,9 @@ export default defineComponent({
         error.value = 'Wrong password, please try again';
       }
     }
+    function closeParent() {
+      emit('close');
+    }
     return {
       // Primitives
       email,
@@ -89,6 +92,7 @@ export default defineComponent({
       isPwd,
       //Functions
       useAuthLogin,
+      closeParent,
     };
   },
 });

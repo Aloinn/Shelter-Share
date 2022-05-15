@@ -8,7 +8,8 @@ export interface Shelter {
 
 export interface Request {
   uid: string;
-  shelterId: string;
+  shelter: string;
   address: string;
   content: string;
+  status: 'pending' | 'completed';
 }

@@ -20,7 +20,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
+import { defineComponent } from 'vue';
 import AuthButton from 'src/components/auth/AuthButton.vue';
 
 export default defineComponent({
