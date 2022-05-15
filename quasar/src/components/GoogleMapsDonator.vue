@@ -121,6 +121,7 @@ export default defineComponent({
     };
 
     const openDialog = (shelter: Shelter) => {
+      location.value = { lat: shelter.lat, lng: shelter.long };
       $q.dialog({
         component: DialogWrapperVue,
         componentProps: { shelter },

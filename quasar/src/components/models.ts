@@ -1,8 +1,8 @@
 export interface Shelter {
   id?: string;
   name: string;
-  long: string;
-  lat: string;
+  long: number;
+  lat: number;
   address: string;
 }
 
