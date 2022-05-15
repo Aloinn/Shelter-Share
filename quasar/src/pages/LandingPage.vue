@@ -1,12 +1,12 @@
 <template>
   <q-page>
     <hero-section id="/"></hero-section>
-    <info-cards></info-cards>
-    <about-section></about-section>
-    <stats-section></stats-section>
-    <how-it-works></how-it-works>
-    <team-section></team-section>
-    <shelter-signup></shelter-signup>
+    <info-cards id="info"></info-cards>
+    <about-section id="about"></about-section>
+    <stats-section id="stats"></stats-section>
+    <how-it-works id="howitworks"></how-it-works>
+    <team-section id="team"></team-section>
+    <footer-section></footer-section>
   </q-page>
 </template>
 
@@ -18,7 +18,7 @@ import AboutSection from 'src/components/landing/AboutSection.vue';
 import StatsSection from 'src/components/landing/StatsSection.vue';
 import HowItWorks from 'src/components/landing/HowItWorks.vue';
 import TeamSection from 'src/components/landing/TeamSection.vue';
-import ShelterSignup from 'src/components/landing/ShelterSignup.vue';
+import FooterSection from 'src/components/landing/FooterSection.vue';
 
 export default defineComponent({
   components: {
@@ -28,7 +28,7 @@ export default defineComponent({
     StatsSection,
     HowItWorks,
     TeamSection,
-    ShelterSignup,
+    FooterSection,
   },
   setup() {
     return {};

@@ -5,11 +5,11 @@
         <q-toolbar-title>
           <q-btn icon="handshake" to="#/" flat />
         </q-toolbar-title>
-        <q-btn label="Home" flat></q-btn>
-        <q-btn label="About" flat></q-btn>
-        <q-btn label="How It Works" flat></q-btn>
-        <q-btn label="Team" flat></q-btn>
-        <q-btn label="Shelter Signup" flat></q-btn>
+        <q-btn label="Home" to="#/" flat></q-btn>
+        <q-btn label="About" to="#about" flat></q-btn>
+        <q-btn label="How It Works" to="#howitworks" flat></q-btn>
+        <q-btn label="Team" to="#team" flat></q-btn>
+        <auth-button></auth-button>
       </q-toolbar>
     </q-header>
 
@@ -21,10 +21,11 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
+import AuthButton from 'src/components/auth/AuthButton.vue';
 
 export default defineComponent({
   name: 'MainLayout',
-
+  components: { AuthButton },
   setup() {
     return {};
   },
